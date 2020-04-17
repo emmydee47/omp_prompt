@@ -194,7 +194,7 @@ class AdminJobApplicationController extends AdminBaseController
 
     private function getShortlistData($request)
     {
-        
+        // optimizing the search functionality for robustness and speed
         $jobApplications = JobApplication::select('job_applications.id', 'job_applications.full_name', 'job_applications.resume', 'job_applications.phone',
             'job_applications.email', 'job_applications.candidate_id', 'jobs.title', 'job_locations.location', 'application_status.status',
             'job_applications.created_at', 'job_applications.job_id', 'job_applications.job_role',
@@ -756,6 +756,7 @@ class AdminJobApplicationController extends AdminBaseController
     }
 
     // Job Applications data Export
+    // function to export large amount of data to excel made efficient by using laravel's data chunking functionality
     public function export(Request $request, $status, $location, $startDate, $endDate, $jobs, $type)
     {
         $request->jobs = $jobs;
