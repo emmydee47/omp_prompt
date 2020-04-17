@@ -195,6 +195,7 @@ class AdminJobApplicationController extends AdminBaseController
     private function getShortlistData($request)
     {
         // optimizing the search functionality for robustness and speed
+        // implementing Laravel's inbuilt ORM/Eloquent functionalites and raw queries to handle large search criteria
         $jobApplications = JobApplication::select('job_applications.id', 'job_applications.full_name', 'job_applications.resume', 'job_applications.phone',
             'job_applications.email', 'job_applications.candidate_id', 'jobs.title', 'job_locations.location', 'application_status.status',
             'job_applications.created_at', 'job_applications.job_id', 'job_applications.job_role',
