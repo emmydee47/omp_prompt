@@ -59,7 +59,7 @@ class AdminJobApplicationController extends AdminBaseController
         $this->boardColumns = ApplicationStatus::with(['applications', 'applications.schedule'])->get();
         $boardStracture = [];
         foreach ($this->boardColumns as $key => $column) {
-            $boardStracture[$column->id] = [];
+            $boardStracture[$column->id] = [ ];
             foreach ($column->applications as $application) {
                 $boardStracture[$column->id][] = $application->id;
             }
